@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -16,6 +16,8 @@ import { ProductsService } from "./products.service";
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { AuthGuardService } from "./auth-guard.service";
 import { AuthService } from "./auth.service";
+import { LoginComponent } from "./login/login.component";
+import { SignupComponent } from "./signup/signup.component";
 
 @NgModule({
   declarations: [
@@ -24,14 +26,17 @@ import { AuthService } from "./auth.service";
     ProductGetComponent,
     ProductDitComponent,
     NavComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SlimLoadingBarModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [ProductsService, AuthGuardService, AuthService],
   bootstrap: [AppComponent]

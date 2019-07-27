@@ -1,0 +1,21 @@
+.container {
+  margin: 0 auto;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+.card {
+  box-shadow: 5px 5px 10px -6px #13243b;
+  border-radius: 10px;
+  height: 500px;
+  justify-content: center;
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+form {
+  width: 60%;
+}
