@@ -29,6 +29,8 @@ export class ProductDitComponent implements OnInit {
   }
 
   ngOnInit() {
+    // console.log(this.route);
+    // console.log(this.route.snapshot.params.id); to get the params of a route automatically
     this.route.params.subscribe(params => {
       this.ps.editProduct(params["id"]).subscribe(res => (this.product = res));
     });

@@ -12,6 +12,7 @@ import { NavComponent } from "./nav/nav.component";
 import { SlimLoadingBarModule } from "ng2-slim-loading-bar";
 
 import { ProductsService } from "./products.service";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProductsService } from "./products.service";
     ProductAddComponent,
     ProductGetComponent,
     ProductDitComponent,
-    NavComponent
+    NavComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

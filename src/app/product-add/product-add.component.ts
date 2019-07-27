@@ -6,7 +6,6 @@ import { ProductsService } from "../products.service";
   selector: "app-product-add",
   templateUrl: "./product-add.component.html",
   styleUrls: ["./product-add.component.css"],
-  providers: [ProductsService]
 })
 export class ProductAddComponent implements OnInit {
   @ViewChild("productName", { static: false }) productNameRef: ElementRef;
