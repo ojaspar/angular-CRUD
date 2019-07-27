@@ -12,7 +12,10 @@ import { NavComponent } from "./nav/nav.component";
 import { SlimLoadingBarModule } from "ng2-slim-loading-bar";
 
 import { ProductsService } from "./products.service";
-import { NotFoundComponent } from './not-found/not-found.component';
+
+import { NotFoundComponent } from "./not-found/not-found.component";
+import { AuthGuardService } from "./auth-guard.service";
+import { AuthService } from "./auth.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +33,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ProductsService],
+  providers: [ProductsService, AuthGuardService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

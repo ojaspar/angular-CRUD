@@ -4,6 +4,7 @@ import { ProductAddComponent } from "./product-add/product-add.component";
 import { ProductDitComponent } from "./product-dit/product-dit.component";
 import { ProductGetComponent } from "./product-get/product-get.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
+import { AuthGuardService } from "./auth-guard.service";
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
   },
   {
     path: "products",
+    canActivate: [AuthGuardService],
     component: ProductGetComponent
   },
   {
