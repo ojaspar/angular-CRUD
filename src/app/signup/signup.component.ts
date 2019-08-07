@@ -22,20 +22,13 @@ export class SignupComponent implements OnInit {
   createForm() {
     this.angForm = this.fb.group({
       fullName: ["", Validators.required],
-      email: ["", Validators.required],
+      email: ["", Validators.required, Validators.email],
       password: ["", Validators.required],
       conPassword: ["", Validators.required]
     });
   }
   signUp() {
-    console.log(this.fullNameRef.nativeElement.value);
+    console.log(this.angForm);
     // this.sU.signUp(this.fullNameRef.nativeElement.val);
-
-    this.sU.signUp(
-      this.fullNameRef.nativeElement.value,
-      this.emailRef.nativeElement.value,
-      this.passwordRef.nativeElement.value,
-      this.conPasswordRef.nativeElement.value
-    );
   }
 }

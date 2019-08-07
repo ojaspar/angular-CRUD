@@ -1,14 +1,16 @@
 <div class="container">
   <div class="card">
-    <form [formGroup]="angForm" novalidate>
+    <form (ngSubmit)="login(f)" #f="ngForm">
       <div class="row">
         <div class="col-sm-12 form-group">
           <label>Email:</label>
           <input
             type="email"
             class="form-control"
-            formControlName="email"
-            #email
+            name="email"
+            ngModel
+            required
+            [ngClass]="{ 'border border-danger': f.invalid && f.touched }"
           />
         </div>
         <div class="col-sm-12 form-group">
@@ -16,12 +18,15 @@
           <input
             type="password"
             class="form-control"
-            formControlName="password"
-            #password
+            name="password"
+            ngModel
+            required
           />
         </div>
         <div class="col-sm-12 form-group">
-          <button class="btn btn-primary" (click)="login()">SignUp</button>
+          <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+            Login
+          </button>
         </div>
       </div>
     </form>

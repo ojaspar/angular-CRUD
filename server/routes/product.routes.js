@@ -1,19 +1,20 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const Product = require("../model/Products");
-router.post("/add", (req, res) => {
+const Product = require('../model/Products');
+const User = require('../model/User');
+router.post('/add', (req, res) => {
   let product = new Product(req.body);
   product
     .save()
     .then(product =>
       res
         .status(201)
-        .json({ product: "Product has ben added successfully" + product })
+        .json({ product: 'Product has ben added successfully' + product })
     )
-    .catch(err => res.status(400).send("unable to save to database"));
+    .catch(err => res.status(400).send('unable to save to database'));
 });
 
-router.get("/products", (req, res) => {
+router.get('/products', (req, res) => {
   Product.find((err, products) => {
     if (err) {
       console.log(err);
@@ -23,16 +24,16 @@ router.get("/products", (req, res) => {
   });
 });
 
-router.get("/edit/:id", (req, res) => {
+router.get('/edit/:id', (req, res) => {
   let id = req.params.id;
   Product.findById(id, (err, product) => {
     res.json(product);
   });
 });
 
-router.post("/update/:id", (req, res) => {
+router.post('/update/:id', (req, res) => {
   Product.findById(req.params.id, function(err, product) {
-    if (!product) res.status(404).send("Record not found");
+    if (!product) res.status(404).send('Record not found');
     else {
       product.productName = req.body.productName;
       product.productDescription = req.body.productDescription;
@@ -41,25 +42,27 @@ router.post("/update/:id", (req, res) => {
       product
         .save()
         .then(product => {
-          res.json("Update complete");
+          res.json('Update complete');
           console.log(product);
         })
         .catch(err => {
-          res.status(400).send("unable to update the database");
+          res.status(400).send('unable to update the database');
         });
     }
   });
 });
 
-router.get("/delete/:id", (req, res) => {
+router.get('/delete/:id', (req, res) => {
   Product.findByIdAndRemove(
     { _id: req.params.id },
-    
+
     function(err, product) {
       if (err) res.json(err);
-      else res.json("Successfully removed");
+      else res.json('Successfully removed');
     }
   );
 });
+
+// login
 
 module.exports = router;
